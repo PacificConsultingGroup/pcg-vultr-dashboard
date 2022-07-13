@@ -1,7 +1,9 @@
+
 import { useCallback, useEffect, useState } from 'react';
 
 import backendAxios from '@/src/lib/configuredAxios';
 import type LoggedInUser from '@/src/schemas/LoggedInUser';
+import type User from '@/src/schemas/database/User';
 
 const loggedInUserLSKey = 'PCGVultrDashboard_loggedInUser';
 
@@ -26,6 +28,17 @@ export default function useLoggedInUser() {
     backendAxios.post(`/api/logout`);
     setLoggedInUser(undefined);
     registerAsLoggedOutInLS();
+  }
+
+  async function login(email: User['email'], password: User['password']) {
+    try {
+      const { data } = await backendAxios.post<LoggedInUser>(`/api/login`, { email, password });
+      // Login successful
+      registerAsLoggedInInLS(data.userId);
+      setLoggedInUser(data);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   const authenticate = useCallback(() => {
@@ -53,6 +66,7 @@ export default function useLoggedInUser() {
   return {
     loggedInUser,
     authenticate,
+    login,
     logout
   };
 }
