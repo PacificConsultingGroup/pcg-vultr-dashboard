@@ -51,9 +51,9 @@
   --color-grey-white: hsl(0, 0%, 100%);
   --color-grey-offwhite: hsl(0, 0%, 95%);
   --color-grey-light: hsl(0, 0%, 85%);
-  --color-grey-base: hsl(0, 0%, 45%);
+  --color-grey-base: hsl(0, 0%, 50%);
   --color-grey-dark: hsl(0, 0%, 30%);
-  --color-grey-offblack: hsl(0, 0%, 10%);
+  --color-grey-offblack: hsl(0, 0%, 8%);
   --color-grey-black: hsl(0, 0%, 0%);
 
   --color-primary-dark: hsl(240, 70%, 20%);
@@ -61,8 +61,8 @@
   --color-primary-light: hsl(240, 70%, 60%);
   --color-surface-1: hsl(240, 20%, 10%);
   --color-surface-2: hsl(240, 20%, 12%);
-  --color-surface-3: hsl(240, 20%, 15%);
-  --color-surface-4: hsl(240, 20%, 20%);
+  --color-surface-3: hsl(240, 20%, 14%);
+  --color-surface-4: hsl(240, 20%, 16%);
 
   --color-mono-lightest: var(--color-grey-white);
   --color-mono-lighter: var(--color-grey-offwhite);
@@ -80,7 +80,7 @@
 
   /* Scrollbar styling for Firefox */
   scrollbar-width: thin;
-  scrollbar-color: var(--color-mono-light) var(--color-mono-light);
+  scrollbar-color: var(--color-mono-base) var(--color-mono-dark);
 }
 
 /* Scrollbar styling for Chrome, Edge, and Safari */
@@ -88,14 +88,14 @@
   width: 8px;
 }
 *::-webkit-scrollbar-track {
-  background: var(--color-mono-lighter);
+  background: var(--color-mono-dark);
 }
 *::-webkit-scrollbar-thumb {
-  background-color: var(--color-mono-light);
+  background-color: var(--color-mono-base);
   border-radius: 4px;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-mono-base);
+  background-color: var(--color-mono-light);
 }
 
 /* Resets */
@@ -114,6 +114,14 @@ p {
 }
 h1 {
   font-size: var(--font-size-largest);
+  color: var(--color-mono-lighter);
+}
+h2 {
+  font-size: var(--font-size-larger);
+  color: var(--color-mono-lighter);
+}
+h3 {
+  font-size: var(--font-size-large);
   color: var(--color-mono-lighter);
 }
 a {

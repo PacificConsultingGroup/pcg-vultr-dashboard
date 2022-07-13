@@ -1,0 +1,115 @@
+.overallContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 50px 100px;
+  background-color: var(--color-background);
+  min-height: 100vh;
+}
+
+.pageTitle {
+  position: relative;
+  margin-bottom: 50px;
+}
+.contentContainer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.section {
+  position: relative;
+}
+.section > .sectionTitle {
+  position: relative;
+  margin-block-end: 20px;
+}
+
+.palette {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.colorSquare {
+  position: relative;
+  display: grid;
+  place-items: center;
+  color: var(--color-mono-base);
+  width: 100px;
+  aspect-ratio: 1 / 1;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow-standard);
+}
+
+/* Suraces */
+.colorSquare.surface1 {
+  background-color: var(--color-surface-1);
+}
+.colorSquare.surface2 {
+  background-color: var(--color-surface-2);
+}
+.colorSquare.surface3 {
+  background-color: var(--color-surface-3);
+}
+.colorSquare.surface4 {
+  background-color: var(--color-surface-4);
+}
+
+/* Primaries */
+.colorSquare.primaryDark {
+  background-color: var(--color-primary-dark);
+}
+.colorSquare.primaryBase {
+  background-color: var(--color-primary-base);
+}
+.colorSquare.primaryLight {
+  background-color: var(--color-primary-light);
+}
+
+/* Status */
+.colorSquare.okBase {
+  background-color: var(--color-ok-base);
+}
+.colorSquare.okLight {
+  background-color: var(--color-ok-light);
+}
+.colorSquare.warnBase {
+  background-color: var(--color-warn-base);
+}
+.colorSquare.warnLight {
+  background-color: var(--color-warn-light);
+}
+.colorSquare.errorBase {
+  background-color: var(--color-error-base);
+}
+.colorSquare.errorLight {
+  background-color: var(--color-error-light);
+}
+
+
+/* Monotones */
+.colorSquare.monoDarkest {
+  background-color: var(--color-mono-darkest);
+}
+.colorSquare.monoDarker {
+  background-color: var(--color-mono-darker);
+}
+.colorSquare.monoDark {
+  background-color: var(--color-mono-dark);
+}
+.colorSquare.monoBase {
+  background-color: var(--color-mono-base);
+}
+.colorSquare.monoLight {
+  background-color: var(--color-mono-light);
+}
+.colorSquare.monoLighter {
+  background-color: var(--color-mono-lighter);
+}
+.colorSquare.monoLightest {
+  background-color: var(--color-mono-lightest);
+}
