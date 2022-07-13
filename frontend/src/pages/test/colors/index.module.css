@@ -28,6 +28,13 @@
   margin-block-end: 20px;
 }
 
+.group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .palette {
   position: relative;
   display: flex;

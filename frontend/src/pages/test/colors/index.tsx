@@ -41,23 +41,27 @@ export default function TestColorsPage() {
         <section className={ styles.section }>
           <h2 className={ styles.sectionTitle }>Status</h2>
           <div className={ styles.palette }>
-            <div className={ `${styles.colorSquare} ${styles.okBase}` }>
-              ok - base
+            <div className={ styles.group }>
+              <div className={ `${styles.colorSquare} ${styles.okBase}` }>
+                ok - base
+              </div>
+              <div className={ `${styles.colorSquare} ${styles.warnBase}` }>
+                warn - base
+              </div>
+              <div className={ `${styles.colorSquare} ${styles.errorBase}` }>
+                error - base
+              </div>
             </div>
-            <div className={ `${styles.colorSquare} ${styles.warnBase}` }>
-              warn - base
-            </div>
-            <div className={ `${styles.colorSquare} ${styles.errorBase}` }>
-              error - base
-            </div>
-            <div className={ `${styles.colorSquare} ${styles.okLight}` }>
-              ok - light
-            </div>
-            <div className={ `${styles.colorSquare} ${styles.warnLight}` }>
-              warn - light
-            </div>
-            <div className={ `${styles.colorSquare} ${styles.errorLight}` }>
-              error - light
+            <div className={ styles.group }>
+              <div className={ `${styles.colorSquare} ${styles.okLight}` }>
+                ok - light
+              </div>
+              <div className={ `${styles.colorSquare} ${styles.warnLight}` }>
+                warn - light
+              </div>
+              <div className={ `${styles.colorSquare} ${styles.errorLight}` }>
+                error - light
+              </div>
             </div>
           </div>
         </section>
