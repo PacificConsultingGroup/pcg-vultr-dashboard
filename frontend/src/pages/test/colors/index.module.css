@@ -4,7 +4,6 @@
   flex-direction: column;
   align-items: stretch;
   padding: 50px 100px;
-  background-color: var(--color-background);
   min-height: 100vh;
 }
 
