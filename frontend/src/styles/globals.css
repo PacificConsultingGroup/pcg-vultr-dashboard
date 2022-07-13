@@ -20,9 +20,9 @@
   font-family: var(--font-family-primary);
 
   /* Font sizes */
-  --font-size-web-smaller: 14px;
-  --font-size-web-small: 16px;
-  --font-size-web-regular: 18px;
+  --font-size-web-smaller: 12px;
+  --font-size-web-small: 14px;
+  --font-size-web-regular: 16px;
   --font-size-web-large: 22px;
   --font-size-web-larger: 26px;
   --font-size-web-largest: 32px;
@@ -83,6 +83,10 @@
   scrollbar-color: var(--color-mono-base) var(--color-mono-dark);
 }
 
+body {
+  background-color: var(--color-background);
+}
+
 /* Scrollbar styling for Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 8px;
@@ -141,8 +145,9 @@ label {
 }
 input {
   font-size: var(--font-size-regular);
-  color: var(--color-mono-lighter);
-  padding: 5px;
+  color: var(--color-mono-light);
+  background-color: transparent;
+  padding: 0px 0px 5px 0px;
   outline: none;
   border-style: solid;
   border-width: 1px;
@@ -172,7 +177,7 @@ textarea:focus {
 
 /* Media queries*/
 
-@media only screen and (max-width: 800px) {
+@media (max-width: 800px) {
   * {
     --font-size-smaller: var(--font-size-mobile-smaller);
     --font-size-small: var(--font-size-mobile-small);
