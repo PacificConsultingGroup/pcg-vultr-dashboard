@@ -1,7 +1,8 @@
 
+import { NextPage } from 'next';
 import styles from './index.module.css';
 
-export default function TestColorsPage() {
+const TestColorsPage: NextPage = () => {
 
   return (
     <div className={ styles.overallContainer }>
@@ -94,4 +95,6 @@ export default function TestColorsPage() {
       </div>
     </div>
   );
-}
+};
+
+export default TestColorsPage;
