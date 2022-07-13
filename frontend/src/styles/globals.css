@@ -41,12 +41,12 @@
   --font-size-largest: var(--font-size-web-largest);
 
   /* Color palette */
-  --color-ok-base: hsl(140, 100%, 60%);
-  --color-ok-light: hsl(140, 100%, 75%);
-  --color-warn-base: hsl(55, 100%, 60%);
-  --color-warn-light: hsl(55, 100%, 75%);
-  --color-error-base: hsl(12, 100%, 60%);
-  --color-error-light: hsl(12, 100%, 75%);
+  --color-ok-base: hsl(135, 95%, 60%);
+  --color-ok-light: hsl(135, 95%, 72%);
+  --color-warn-base: hsl(50, 95%, 60%);
+  --color-warn-light: hsl(50, 95%, 72%);
+  --color-error-base: hsl(0, 95%, 60%);
+  --color-error-light: hsl(12, 95%, 72%);
 
   --color-grey-white: hsl(0, 0%, 100%);
   --color-grey-offwhite: hsl(0, 0%, 95%);
@@ -56,9 +56,9 @@
   --color-grey-offblack: hsl(0, 0%, 8%);
   --color-grey-black: hsl(0, 0%, 0%);
 
-  --color-primary-dark: hsl(240, 70%, 20%);
-  --color-primary-base: hsl(240, 70%, 40%);
-  --color-primary-light: hsl(240, 70%, 60%);
+  --color-primary-dark: hsl(240, 60%, 25%);
+  --color-primary-base: hsl(240, 60%, 40%);
+  --color-primary-light: hsl(240, 60%, 60%);
   --color-surface-1: hsl(240, 20%, 10%);
   --color-surface-2: hsl(240, 20%, 12%);
   --color-surface-3: hsl(240, 20%, 14%);
