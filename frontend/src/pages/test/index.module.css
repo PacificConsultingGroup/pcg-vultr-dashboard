@@ -1,4 +1,12 @@
-
 .overallContainer {
   position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.inputField {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }

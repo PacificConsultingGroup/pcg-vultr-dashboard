@@ -1,0 +1,73 @@
+.overallContainer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.loginCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 320px;
+}
+
+.title {
+  position: relative;
+  font-size: var(--font-size-largest);
+  white-space: nowrap;
+  margin-bottom: 50px;
+}
+
+.form {
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.formFieldList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.fieldContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fieldContainer.required > label::before {
+  position: absolute;
+  content: '*';
+  left: -12px;
+  font-size: var(--font-size-regular);
+  color: var(--color-red-base);
+}
+.fieldContainer > label {
+  font-size: var(--font-size-regular);
+}
+.fieldContainer > input {
+  font-size: calc(var(--font-size-regular) - 1px);
+}
+.fieldContainer > input.valid {
+  border-color: transparent transparent var(--color-ok-base) transparent;
+}
+.fieldContainer > input.invalid {
+  border-color: transparent transparent var(--color-error-base) transparent;
+}
+.errorMessage {
+  color: var(--color-error-light);
+  font-size: var(--font-size-small);
+}
+.loginButton {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .loginCard {
+    width: 70%;
+  }
+}
