@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "semi": ["warn", "always"]
+  },
+  "extends": "next/core-web-vitals"
+}
