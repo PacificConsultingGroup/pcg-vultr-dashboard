@@ -41,26 +41,38 @@
   --font-size-largest: var(--font-size-web-largest);
 
   /* Color palette */
-  --color-primary-base: hsl(236, 100%, 70%);
-  --color-primary-light: hsl(236, 100%, 80%);
-  --color-surface-lightest: hsl(236, 100%, 70%);
-  --color-surface-light: hsl(236, 100%, 70%);
-  --color-surface-base: hsl(236, 100%, 70%);
-  --color-surface-dark: hsl(236, 100%, 70%);
-  --color-surface-darkest: hsl(235, 70%, 14%);
   --color-ok-base: hsl(140, 100%, 60%);
   --color-ok-light: hsl(140, 100%, 75%);
   --color-warn-base: hsl(55, 100%, 60%);
   --color-warn-light: hsl(55, 100%, 75%);
   --color-error-base: hsl(12, 100%, 60%);
   --color-error-light: hsl(12, 100%, 75%);
+
   --color-grey-white: hsl(0, 0%, 100%);
-  --color-grey-offwhite: hsl(0, 0%, 96%);
-  --color-grey-light: hsl(0, 0%, 83%);
-  --color-grey-base: hsl(0, 0%, 46%);
-  --color-grey-dark: hsl(0, 0%, 31%);
-  --color-grey-offblack: hsl(0, 0%, 11%);
+  --color-grey-offwhite: hsl(0, 0%, 95%);
+  --color-grey-light: hsl(0, 0%, 85%);
+  --color-grey-base: hsl(0, 0%, 45%);
+  --color-grey-dark: hsl(0, 0%, 30%);
+  --color-grey-offblack: hsl(0, 0%, 10%);
   --color-grey-black: hsl(0, 0%, 0%);
+
+  --color-primary-dark: hsl(240, 70%, 20%);
+  --color-primary-base: hsl(240, 70%, 40%);
+  --color-primary-light: hsl(240, 70%, 60%);
+  --color-surface-1: hsl(240, 20%, 10%);
+  --color-surface-2: hsl(240, 20%, 12%);
+  --color-surface-3: hsl(240, 20%, 15%);
+  --color-surface-4: hsl(240, 20%, 20%);
+
+  --color-mono-lightest: var(--color-grey-white);
+  --color-mono-lighter: var(--color-grey-offwhite);
+  --color-mono-light: var(--color-grey-light);
+  --color-mono-base: var(--color-grey-base);
+  --color-mono-dark: var(--color-grey-dark);
+  --color-mono-darker: var(--color-grey-offblack);
+  --color-mono-darkest: var(--color-grey-black);
+
+  --color-background: var(--color-mono-darker);
 
   /* Box shadows */
   --box-shadow-standard: -2px 2px 8px 1px hsla(0, 0%, 0%, 0.1);
@@ -68,7 +80,7 @@
 
   /* Scrollbar styling for Firefox */
   scrollbar-width: thin;
-  scrollbar-color: var(--color-grey-light) var(--color-grey-offwhite);
+  scrollbar-color: var(--color-mono-light) var(--color-mono-light);
 }
 
 /* Scrollbar styling for Chrome, Edge, and Safari */
@@ -76,18 +88,19 @@
   width: 8px;
 }
 *::-webkit-scrollbar-track {
-  background: var(--color-grey-offwhite);
+  background: var(--color-mono-lighter);
 }
 *::-webkit-scrollbar-thumb {
-  background-color: var(--color-grey-light);
+  background-color: var(--color-mono-light);
   border-radius: 4px;
 }
 *::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-grey-base);
+  background-color: var(--color-mono-base);
 }
 
 /* Resets */
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 button {
@@ -97,14 +110,15 @@ button {
 /* Global styles */
 p {
   font-size: var(--font-size-regular);
-  color: var(--color-grey-offblack);
+  color: var(--color-mono-lighter);
 }
 h1 {
   font-size: var(--font-size-largest);
-  color: var(--color-grey-offblack);
+  color: var(--color-mono-lighter);
 }
 a {
   font-size: var(--font-size-regular);
+  color: var(--color-mono-lighter);
   color: var(--color-primary-base);
   transition: color 100ms ease-out;
   text-decoration: none;
@@ -114,17 +128,17 @@ a:hover {
   color: var(--color-primary-light);
 }
 label {
-  color: var(--color-grey-base);
+  color: var(--color-mono-base);
   font-size: var(--font-size-small);
 }
 input {
   font-size: var(--font-size-regular);
-  color: var(--color-grey-offblack);
+  color: var(--color-mono-lighter);
   padding: 5px;
   outline: none;
   border-style: solid;
   border-width: 1px;
-  border-color: transparent transparent var(--color-grey-light) transparent;
+  border-color: transparent transparent var(--color-mono-light) transparent;
   transition: border-color 100ms ease-out;
 }
 input:focus {
@@ -132,12 +146,12 @@ input:focus {
 }
 textarea {
   font-size: var(--font-size-regular);
-  color: var(--color-grey-offblack);
+  color: var(--color-mono-lighter);
   padding: 10px;
   outline: none;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--color-grey-light);
+  border-color: var(--color-mono-light);
   border-radius: 5px;
   transition:
     border-color 100ms ease-out,
@@ -158,5 +172,33 @@ textarea:focus {
     --font-size-large: var(--font-size-mobile-large);
     --font-size-larger: var(--font-size-mobile-larger);
     --font-size-largest: var(--font-size-mobile-largest);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  * {
+    --color-mono-lightest: var(--color-grey-white);
+    --color-mono-lighter: var(--color-grey-offwhite);
+    --color-mono-light: var(--color-grey-light);
+    --color-mono-base: var(--color-grey-base);
+    --color-mono-dark: var(--color-grey-dark);
+    --color-mono-darker: var(--color-grey-offblack);
+    --color-mono-darkest: var(--color-grey-black);
+
+    /* TODO: Adjust surface colours accordingly! */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  * {
+    --color-mono-lightest: var(--color-grey-black);
+    --color-mono-lighter: var(--color-grey-offblack);
+    --color-mono-light: var(--color-grey-dark);
+    --color-mono-base: var(--color-grey-base);
+    --color-mono-dark: var(--color-grey-light);
+    --color-mono-darker: var(--color-grey-offwhite);
+    --color-mono-darkest: var(--color-grey-white);
+
+    /* TODO: Adjust surface colours accordingly! */
   }
 }
