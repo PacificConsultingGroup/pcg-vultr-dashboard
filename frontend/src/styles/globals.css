@@ -201,8 +201,11 @@ button:hover {
 
 /* Page transitions stuff */
 body {
+  /* 
+    NOTE: --page-transition-duration is defined in usePageTransition.tsx
+  */
   opacity: 1;
-  transition: opacity 100ms ease-out;
+  transition: opacity var(--page-transition-duration) ease-out;
 }
 body.pageFadeOut {
   opacity: 0;
