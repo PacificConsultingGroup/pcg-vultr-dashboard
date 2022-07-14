@@ -1,7 +1,7 @@
 
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { MouseEvent, useEffect } from 'react';
+import { MouseEvent, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import useLoggedInUser from '@/src/hooks/useLoggedInUser';
 import useForm from '@/src/hooks/useForm';
@@ -22,10 +22,10 @@ const LoginPage: NextPage = () => {
     email: '',
     password: ''
   };
-  const formValidators = {
+  const formValidators = useMemo(() => ({
     email: validateEmail,
     password: validatePassword
-  };
+  }), []);
 
   const {
     formValues,
