@@ -3,45 +3,55 @@ import { useEffect, useRef } from 'react';
 
 interface Options {
   redirectType?: 'back' | 'replace' | 'push';
-  duration?: number;
+  currentPageExitDuration?: number;
+  nextPageEnterDuration?: number;
 }
 
 const defaultOptions: Options = {
   redirectType: 'push',
-  duration: 100 // The duration of the enter/exit transition. In ms.
+  currentPageExitDuration: 100, // In ms. 
+  nextPageEnterDuration: 100 // In ms. 
 };
 
 export default function usePageTransition() {
 
   const router = useRouter();
-  const bodyNodeRef = useRef<HTMLBodyElement | null>(null);
-  const afterPageExitCallbackRef = useRef<(e: TransitionEvent) => void>();
+
+  function afterPageEnter(e: TransitionEvent) {
+    if (e.currentTarget !== e.target) return;
+    const bodyNode = document.querySelector('body');
+    bodyNode?.style.setProperty('pointer-events', 'unset');
+    bodyNode?.removeEventListener('transitionend', afterPageEnter);
+  }
 
   function pageTransitionTo(destinationURL: string, options: Options = {}) {
     const {
-      duration,
+      currentPageExitDuration,
+      nextPageEnterDuration,
       redirectType
-    } = Object.assign(defaultOptions, options);
-    function afterPageExit(e?: TransitionEvent) {
-      console.log('Called!');
-      if (e?.currentTarget !== e?.target) return;
+    } = Object.assign({ ...defaultOptions }, options);
+    function afterPageExit(e: TransitionEvent) {
+      if (e.currentTarget !== e.target) return;
+      const bodyNode = document.querySelector('body');
+      bodyNode?.removeEventListener('transitionend', afterPageExit);
+      bodyNode?.addEventListener('transitionend', afterPageEnter);
+      bodyNode?.style.setProperty('--page-transition-duration', `${nextPageEnterDuration! <= 0 ? 1 : nextPageEnterDuration}ms`);
       switch (redirectType) {
         case 'back': return router.back();
         case 'replace': return router.replace(destinationURL);
         case 'push': return router.push(destinationURL);
       }
     }
-    if (duration === 0) return afterPageExit();
-    bodyNodeRef.current?.style.setProperty('--page-transition-duration', `${duration}ms`);
-    afterPageExitCallbackRef.current = afterPageExit;
-    bodyNodeRef.current?.addEventListener('transitionend', afterPageExitCallbackRef.current);
-    bodyNodeRef.current?.classList.add('pageFadeOut');
+    const bodyNode = document.querySelector('body');
+    bodyNode?.style.setProperty('pointer-events', 'none');
+    bodyNode?.style.setProperty('--page-transition-duration', `${currentPageExitDuration! <= 0 ? 1 : currentPageExitDuration}ms`);
+    bodyNode?.addEventListener('transitionend', afterPageExit);
+    bodyNode?.classList.add('pageFadeOut');
   }
 
   useEffect(() => {
-    bodyNodeRef.current = document.querySelector('body');
-    bodyNodeRef.current?.classList.remove('pageFadeOut');
-    afterPageExitCallbackRef.current && bodyNodeRef.current?.removeEventListener('transitionend', afterPageExitCallbackRef.current);
+    const bodyNode = document.querySelector('body');
+    bodyNode?.classList.remove('pageFadeOut');
   }, []);
 
   return {
