@@ -9,8 +9,8 @@ interface Options {
 
 const defaultOptions: Options = {
   redirectType: 'push',
-  currentPageExitDuration: 100, // In ms. 
-  nextPageEnterDuration: 100 // In ms. 
+  currentPageExitDuration: 200, // In ms. 
+  nextPageEnterDuration: 200 // In ms. 
 };
 
 export default function usePageTransition() {
