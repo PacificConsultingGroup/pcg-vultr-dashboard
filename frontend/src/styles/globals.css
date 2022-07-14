@@ -112,6 +112,7 @@ button {
 }
 
 /* Global styles */
+/* Text globals */
 p {
   font-size: var(--font-size-regular);
   color: var(--color-mono-lighter);
@@ -143,6 +144,8 @@ label {
   color: var(--color-mono-base);
   font-size: var(--font-size-small);
 }
+
+/* Input globals */
 input {
   font-size: var(--font-size-regular);
   color: var(--color-mono-light);
@@ -173,6 +176,26 @@ textarea {
 textarea:focus {
   border-color: var(--color-primary-light);
   box-shadow: var(--box-shadow-standard);
+}
+
+/* Button globals */
+button {
+  background-color: var(--color-primary-base);
+  padding: 0.5em 1.2em;
+  font-size: var(--font-size-regular);
+  color: var(--color-mono-lightest);
+  border-radius: 0.2em;
+  box-shadow: var(--box-shadow-standard);
+  transition:
+    color 100ms ease-out,
+    background-color 100ms ease-out,
+    box-shadow 100ms ease-out;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: var(--box-shadow-hover);
+  background-color: var(--color-primary-light);
+  color: var(--color-mono-lightest);
 }
 
 /* Media queries*/
