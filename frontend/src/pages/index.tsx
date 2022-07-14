@@ -1,17 +1,18 @@
 import type { NextPage } from 'next';
-import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import useLoggedInUser from '@/src/hooks/useLoggedInUser';
+import usePageTransition from '@/src/hooks/usePageTransition';
 import styles from './index.module.css';
 
 const Home: NextPage = () => {
 
+  const { pageTransitionTo } = usePageTransition();
+
   const { loggedInUser } = useLoggedInUser();
-  const router = useRouter();
 
   useEffect(() => {
-    if (!loggedInUser) router.replace('/login');
-  }, [loggedInUser, router]);
+    if (!loggedInUser) pageTransitionTo('/login', { redirectType: 'replace', duration: 0 });
+  }, [loggedInUser, pageTransitionTo]);
 
   return (
     <div className={ styles.overallContainer }>
