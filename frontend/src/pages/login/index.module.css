@@ -1,26 +1,39 @@
 .overallContainer {
   position: relative;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   min-height: 100vh;
+  gap: 10vw;
 }
 
-.loginCard {
+.heroSection {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.heroTitle {
+  position: relative;
+  font-size: 200px;
+  color: var(--color-primary-base);
+  margin-block-end: -20px;
+  margin-block-start: -70px;
+}
+.heroSubtitle {
+  position: relative;
+  margin-inline-start: 22px;
+  font-size: 49px;
+  color: var(--color-mono-base);
+}
+
+.loginSection {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 320px;
 }
-
-.title {
-  position: relative;
-  font-size: var(--font-size-largest);
-  white-space: nowrap;
-  margin-bottom: 50px;
-}
-
 .form {
   position: relative;
   width: 100%;
@@ -66,8 +79,27 @@
   width: 100%;
 }
 
-@media (max-width: 600px) {
-  .loginCard {
-    width: 70%;
+@media (max-width: 1000px) {
+  .overallContainer {
+    flex-direction: column;
+    gap: 60px;
+  }
+  .heroSection {
+    flex-direction: column;
+  }
+  .heroTitle {
+    font-size: 120px;
+    margin-block-end: -20px;
+    margin-block-start: unset;
+  }
+  .heroSubtitle {
+    font-size: 30px;
+    margin-inline-start: 12px;
+  }
+}
+
+@media (max-width: 550px) {
+  .loginSection {
+    width: 80%;
   }
 }

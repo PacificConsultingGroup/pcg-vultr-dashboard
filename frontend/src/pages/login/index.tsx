@@ -56,8 +56,15 @@ const LoginPage: NextPage = () => {
 
   return (
     <div className={ styles.overallContainer }>
-      <div className={ styles.loginCard }>
-        <h1 className={ styles.title }>Please Log In</h1>
+      <section className={ styles.heroSection }>
+        <h1 className={ styles.heroTitle }>
+          PCG
+        </h1>
+        <h2 className={ styles.heroSubtitle }>
+          Vultr Dashboard
+        </h2>
+      </section>
+      <section className={ styles.loginSection }>
         <form className={ styles.form }>
           <ol className={ styles.formFieldList }>
             <li className={ `${styles.fieldContainer} ${styles.required}` }>
@@ -90,10 +97,10 @@ const LoginPage: NextPage = () => {
             </li>
           </ol>
           <button type="button" className={ styles.loginButton } onClick={ clickHandlerLoginButton }>
-            Test
+            Log In
           </button>
         </form>
-      </div>
+      </section>
     </div>
   );
 };
