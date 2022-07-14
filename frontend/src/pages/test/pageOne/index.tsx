@@ -8,7 +8,7 @@ const PageOne: NextPage = () => {
 
   return (
     <>
-      <button type="button" onClick={ () => pageTransitionTo('/test/pageTwo', { duration: 0 }) }>
+      <button type="button" onClick={ () => pageTransitionTo('/test/pageTwo', { currentPageExitDuration: 2000, nextPageEnterDuration: 1000 }) }>
         To PageTwo!
       </button>
     </>
