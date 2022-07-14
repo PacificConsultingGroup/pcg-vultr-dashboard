@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   const { loggedInUser } = useLoggedInUser();
 
   useEffect(() => {
-    if (!loggedInUser) pageTransitionTo('/login', { redirectType: 'replace', duration: 0 });
+    if (!loggedInUser) pageTransitionTo('/login', { redirectType: 'replace', currentPageExitDuration: 0 });
   }, [loggedInUser, pageTransitionTo]);
 
   return (

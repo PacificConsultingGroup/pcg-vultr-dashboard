@@ -1,22 +1,22 @@
 
 import { NextPage } from 'next';
-import { useRouter } from 'next/router';
 import { MouseEvent, useEffect, useMemo } from 'react';
 import axios from 'axios';
 import useLoggedInUser from '@/src/hooks/useLoggedInUser';
 import useForm from '@/src/hooks/useForm';
+import usePageTransition from '@/src/hooks/usePageTransition';
 import { validateEmail, validatePassword } from '@/src/utils/validators';
 import styles from './index.module.css';
 
 const LoginPage: NextPage = () => {
 
-  const router = useRouter();
+  const { pageTransitionTo } = usePageTransition();
 
   const { loggedInUser, login } = useLoggedInUser();
 
   useEffect(() => {
-    if (loggedInUser) router.back();
-  }, [loggedInUser, router]);
+    if (loggedInUser) pageTransitionTo('', { redirectType: 'back' });
+  }, [loggedInUser, pageTransitionTo]);
 
   const initialFormValues = {
     email: '',
@@ -44,7 +44,7 @@ const LoginPage: NextPage = () => {
       try {
         const { email, password } = formValues;
         await login(email, password);
-        router.back();
+        pageTransitionTo('', { redirectType: 'back' });
       } catch (error) {
         if (axios.isAxiosError(error)) {
           if (error.response?.status === 401) setFormErrors({ password: 'Email or password is incorrect' });
