@@ -3,26 +3,27 @@ import { useEffect, useRef } from 'react';
 
 interface Options {
   redirectType?: 'back' | 'replace' | 'push';
+  duration?: number;
 }
 
 const defaultOptions: Options = {
-  redirectType: 'push'
+  redirectType: 'push',
+  duration: 100 // The duration of the enter/exit transition. In ms.
 };
 
-export default function usePageTransition(duration = 100) {
-
-  /*
-    PARAMTERS:
-    * duration: The duration of the enter/exit transition. In ms.
-  */
+export default function usePageTransition() {
 
   const router = useRouter();
   const bodyNodeRef = useRef<HTMLBodyElement | null>(null);
   const afterPageExitCallbackRef = useRef<(e: TransitionEvent) => void>();
 
-  function pageTransitionTo(destinationURL: string, options: Options = defaultOptions) {
-    const { redirectType } = options;
+  function pageTransitionTo(destinationURL: string, options: Options = {}) {
+    const {
+      duration,
+      redirectType
+    } = Object.assign(defaultOptions, options);
     function afterPageExit(e?: TransitionEvent) {
+      console.log('Called!');
       if (e?.currentTarget !== e?.target) return;
       switch (redirectType) {
         case 'back': return router.back();
