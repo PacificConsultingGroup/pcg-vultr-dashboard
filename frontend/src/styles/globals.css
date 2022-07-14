@@ -112,6 +112,7 @@ button {
 }
 
 /* Global styles */
+
 /* Text globals */
 p {
   font-size: var(--font-size-regular);
@@ -198,7 +199,16 @@ button:hover {
   color: var(--color-mono-lightest);
 }
 
-/* Media queries*/
+/* Page transitions stuff */
+body {
+  opacity: 1;
+  transition: opacity 100ms ease-out;
+}
+body.pageFadeOut {
+  opacity: 0;
+}
+
+/* Media queries */
 
 @media (max-width: 800px) {
   * {
