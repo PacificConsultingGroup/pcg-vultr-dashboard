@@ -1,0 +1,8 @@
+.overallContainer {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-surface-2);
+  box-shadow: var(--box-shadow-standard);
+  color: white;
+}
