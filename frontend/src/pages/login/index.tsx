@@ -1,7 +1,8 @@
 
 import { NextPage } from 'next';
-import { MouseEvent, useEffect, useMemo } from 'react';
+import { MouseEvent, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
+import BaseButton from '@/src/components/common/BaseButton';
 import useLoggedInUser from '@/src/hooks/useLoggedInUser';
 import useForm from '@/src/hooks/useForm';
 import usePageTransition from '@/src/hooks/usePageTransition';
@@ -11,7 +12,6 @@ import styles from './index.module.css';
 const LoginPage: NextPage = () => {
 
   const { pageTransitionTo } = usePageTransition();
-
   const { loggedInUser, login } = useLoggedInUser();
 
   useEffect(() => {
@@ -36,6 +36,8 @@ const LoginPage: NextPage = () => {
     validatedAtLeastOnce
   } = useForm(initialFormValues, formValidators);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   function clickHandlerLoginButton(e: MouseEvent) {
     e.preventDefault();
     const allInputsAreValid = validate();
@@ -43,14 +45,22 @@ const LoginPage: NextPage = () => {
     (async () => {
       try {
         const { email, password } = formValues;
+        setIsLoading(true);
         await login(email, password);
         pageTransitionTo('', { redirectType: 'back' });
       } catch (error) {
         if (axios.isAxiosError(error)) {
-          if (error.response?.status === 401) setFormErrors({ password: 'Email or password is incorrect' });
+          switch (error.response?.status) {
+            case 401:
+              setFormErrors({ password: 'Email or password is incorrect' });
+              break;
+            default:
+              setFormErrors({ password: 'An unknown error has occurred.' });
+          }
         }
         console.log(error);
       }
+      setIsLoading(false);
     })();
   }
 
@@ -96,9 +106,14 @@ const LoginPage: NextPage = () => {
               { formErrors.password && <p className={ styles.errorMessage }>{ formErrors.password }</p> }
             </li>
           </ol>
-          <button type="button" className={ styles.loginButton } onClick={ clickHandlerLoginButton }>
-            Log In
-          </button>
+          <BaseButton
+            className={ styles.loginButton }
+            clickHandler={ clickHandlerLoginButton }
+            text="Log In"
+            isLoading={ isLoading }
+            disableWhileLoading={ true }
+            loadingText="Logging in..."
+          />
         </form>
       </section>
     </div>
