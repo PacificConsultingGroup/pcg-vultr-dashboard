@@ -22,7 +22,7 @@ export default function BaseButton(props: BaseButtonProps) {
     >
       { props.isLoading
         ? <div className={ styles.icon }><Icon icon="eos-icons:bubble-loading" /></div>
-        : <div className={ styles.icon }>{ props.iconJSX }</div> }
+        : props.iconJSX && <div className={ styles.icon }>{ props.iconJSX }</div> }
       { props.isLoading
         ? props.loadingText ?? 'Loading...'
         : props.text }
