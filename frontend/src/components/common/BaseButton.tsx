@@ -9,13 +9,15 @@ interface BaseButtonProps {
   isLoading?: boolean; // A state that changes the button to its loading version.
   disableWhileLoading?: boolean;
   loadingText?: string; // The text on the button while isLoading is true.
+
+  className?: string;
 }
 
 export default function BaseButton(props: BaseButtonProps) {
 
   return (
     <button
-      className={ styles.button }
+      className={ `${styles.button} ${props.className}` }
       type="button"
       onClick={ props.clickHandler }
       disabled={ props.disableWhileLoading && props.isLoading }
