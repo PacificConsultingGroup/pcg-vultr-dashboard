@@ -11,11 +11,11 @@ export default function useForm<T>(
     them for use by components.
 
     PARAMETERS:
-    * initialFormValues: An object of the shape:
-        {
-          [key: string]: string
-        }
-      | Note that the key here must correspond exactly to the name attribute of its input element.
+    * initialFormValues: An object.
+      | Note that each key in this object must correspond exactly to the name attribute of its input element.
+    * validators: An object. Each key correspond to the name of the input element that the validator is used to validate.
+      | Each key's corresponding value is a validator function that takes in the input value and validates it.
+      | The validator must return a string (describing the reason for validation failure), or undefined if validation passes.
 
     RETURNS:
     * formValues: A reactive object; The reactive form values with a shape identical to initialFormValues.
