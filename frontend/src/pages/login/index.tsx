@@ -2,7 +2,7 @@
 import { NextPage } from 'next';
 import { MouseEvent, useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
-import BaseButton from '@/src/components/common/BaseButton';
+import BaseButton from '@/src/components/common/BaseButton/BaseButton';
 import useLoggedInUser from '@/src/hooks/useLoggedInUser';
 import useForm from '@/src/hooks/useForm';
 import usePageTransition from '@/src/hooks/usePageTransition';

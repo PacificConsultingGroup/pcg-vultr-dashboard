@@ -1,4 +1,4 @@
-import BaseButton from '@/src/components/common/BaseButton';
+import BaseButton from '@/src/components/common/BaseButton/BaseButton';
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
