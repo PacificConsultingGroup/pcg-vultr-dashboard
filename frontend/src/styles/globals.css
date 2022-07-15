@@ -204,6 +204,7 @@ button:hover {
   color: var(--color-mono-lightest);
 }
 button:disabled {
+  cursor: unset;
   background-color: var(--color-mono-dark);
   color: var(--color-mono-base);
   box-shadow: none;
