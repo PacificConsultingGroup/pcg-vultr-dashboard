@@ -31,14 +31,10 @@ export default function useLoggedInUser() {
   }
 
   async function login(email: User['email'], password: User['password']) {
-    try {
-      const { data } = await backendAxios.post<LoggedInUser>(`/api/login`, { email, password });
-      // Login successful
-      registerAsLoggedInInLS(data.userId);
-      setLoggedInUser(data);
-    } catch (err) {
-      console.log(err);
-    }
+    const { data } = await backendAxios.post<LoggedInUser>(`/api/login`, { email, password });
+    // Login successful
+    registerAsLoggedInInLS(data.userId);
+    setLoggedInUser(data);
   }
 
   const authenticate = useCallback(() => {
