@@ -60,10 +60,10 @@
   --color-primary-dark: hsl(240, 60%, 25%);
   --color-primary-base: hsl(240, 60%, 40%);
   --color-primary-light: hsl(240, 60%, 60%);
-  --color-surface-1: hsl(240, 20%, 10%);
-  --color-surface-2: hsl(240, 20%, 12%);
-  --color-surface-3: hsl(240, 20%, 14%);
-  --color-surface-4: hsl(240, 20%, 16%);
+  --color-surface-1: hsl(240, 20%, 12%);
+  --color-surface-2: hsl(240, 20%, 14%);
+  --color-surface-3: hsl(240, 20%, 16%);
+  --color-surface-4: hsl(240, 20%, 20%);
 
   --color-mono-lightest: var(--color-grey-white);
   --color-mono-lighter: var(--color-grey-offwhite);
