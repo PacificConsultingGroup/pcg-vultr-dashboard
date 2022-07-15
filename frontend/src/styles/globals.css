@@ -52,6 +52,7 @@
   --color-grey-offwhite: hsl(0, 0%, 95%);
   --color-grey-light: hsl(0, 0%, 85%);
   --color-grey-base: hsl(0, 0%, 60%);
+  --color-grey-base-dark: hsl(0, 0%, 35%);
   --color-grey-dark: hsl(0, 0%, 30%);
   --color-grey-offblack: hsl(0, 0%, 8%);
   --color-grey-black: hsl(0, 0%, 0%);
@@ -243,11 +244,15 @@ body.pageFadeOut {
     --color-mono-lightest: var(--color-grey-black);
     --color-mono-lighter: var(--color-grey-offblack);
     --color-mono-light: var(--color-grey-dark);
-    --color-mono-base: var(--color-grey-base);
+    --color-mono-base: var(--color-grey-base-dark);
     --color-mono-dark: var(--color-grey-light);
     --color-mono-darker: var(--color-grey-offwhite);
     --color-mono-darkest: var(--color-grey-white);
 
     /* TODO: Adjust surface colours accordingly! */
+  }
+
+  button {
+    --color-mono-lightest: var(--color-grey-white);
   }
 }
