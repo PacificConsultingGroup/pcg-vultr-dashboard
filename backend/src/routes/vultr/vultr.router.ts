@@ -1,8 +1,9 @@
 
 import express from 'express';
+import { vultrGetController } from './vultr.controller';
 
 const vultrRouter = express.Router();
 
-// vultrRouter.use('/somePathSegment', someRouter);
+vultrRouter.get('/*', vultrGetController);
 
 export default vultrRouter;
