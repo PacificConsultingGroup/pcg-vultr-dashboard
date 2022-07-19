@@ -2,7 +2,6 @@ import { RequestHandler } from 'express';
 import User from '@/src/routes/vultr/users/users.schema';
 import { generateAccessToken } from '@/src/lib/auth/auth.utils';
 import { authenticate } from './auth.service';
-import { isFetchError, parseFetchError } from '@/src/lib/configured-fetch/fetch.utils';
 
 export const loginController: RequestHandler<
   never,
