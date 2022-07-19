@@ -9,6 +9,7 @@ import cookieParser from 'cookie-parser';
 
 import vultrRouter from '@/src/routes/vultr/vultr.router';
 import apiRouter from '@/src/routes/api/api.router';
+import { deserializeUser, requireLoggedInUser } from './lib/auth/auth.middleware';
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -25,7 +26,9 @@ app.use(cors({
 app.use(cookieParser());
 app.use(express.json());
 
-app.use('/vultr/', vultrRouter);
+app.use(deserializeUser);
+
 app.use('/api', apiRouter);
+app.use('/vultr/', requireLoggedInUser, vultrRouter);
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
