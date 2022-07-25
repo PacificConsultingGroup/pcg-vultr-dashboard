@@ -1,4 +1,5 @@
-import { vultrFetchClient } from '@/src/lib/configured-fetch/fetch.client';
+
+import vultrFetchClient from '@/src/fetch-clients/vultrFetchClient';
 import VultrUser from '@/src/schema/vultr/VultrUser';
 
 export async function authenticate(email: VultrUser['email'], password: VultrUser['password']): Promise<VultrUser | null> {

@@ -1,4 +1,8 @@
-import axios, { AxiosError } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig } from 'axios';
+
+export function createFetchClient(config?: AxiosRequestConfig) {
+  return axios.create(config);
+}
 
 export function isFetchError(payload: unknown): payload is AxiosError<unknown, unknown> {
   return axios.isAxiosError(payload);

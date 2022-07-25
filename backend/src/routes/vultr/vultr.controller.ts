@@ -1,6 +1,6 @@
 import { RequestHandler } from 'express';
-import { vultrFetchClient } from '@/src/lib/configured-fetch/fetch.client';
-import { isFetchError, parseFetchError } from '@/src/lib/configured-fetch/fetch.utils';
+import vultrFetchClient from '@/src/fetch-clients/vultrFetchClient';
+import { isFetchError, parseFetchError } from '@/src/lib/fetch/fetch.utils';
 
 export const vultrGetController: RequestHandler = async (req, res) => {
   const stringifiedRequestQueries = Object.entries(req.query).reduce((agg, [key, value]) => {
