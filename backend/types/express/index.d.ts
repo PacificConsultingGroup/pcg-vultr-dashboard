@@ -1,10 +1,10 @@
 
-import User from '@/src/routes/vultr/vultr.schema';
+import VultrUser from '@/src/schema/vultr/VultrUser';
 
 declare global {
   namespace Express {
     interface Request {
-      loggedInUserId?: User['id'];
+      loggedInUserId?: VultrUser['id'];
     }
   }
 }

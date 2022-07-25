@@ -1,8 +1,8 @@
 import { vultrFetchClient } from '@/src/lib/configured-fetch/fetch.client';
-import User from '@/src/routes/vultr/vultr.schema';
+import VultrUser from '@/src/schema/vultr/VultrUser';
 
-export async function authenticate(email: User['email'], password: User['password']): Promise<User | null> {
-  const { data } = await vultrFetchClient.get<{ users: User[] }>('/users');
+export async function authenticate(email: VultrUser['email'], password: VultrUser['password']): Promise<VultrUser | null> {
+  const { data } = await vultrFetchClient.get<{ users: VultrUser[] }>('/users');
   const allUsers = data.users;
   const userToLogin = allUsers.find(user => user.email === email);
   if (!userToLogin) return null;

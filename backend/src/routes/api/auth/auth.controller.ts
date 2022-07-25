@@ -1,14 +1,14 @@
 import { RequestHandler } from 'express';
-import User from '@/src/routes/vultr/vultr.schema';
+import VultrUser from '@/src/schema/vultr/VultrUser';
 import { generateAccessToken } from '@/src/lib/auth/auth.utils';
 import { authenticate } from './auth.service';
 
 export const loginController: RequestHandler<
   never,
-  string | { user: User },
+  string | { user: VultrUser },
   {
-    email: User['email'],
-    password: User['password']
+    email: VultrUser['email'],
+    password: VultrUser['password']
   },
   never
 > = async (req, res) => {

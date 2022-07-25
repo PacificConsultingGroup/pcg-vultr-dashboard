@@ -15,7 +15,7 @@ type ACL = (
   | 'upgrade'
 );
 
-export default interface User {
+export default interface VultrUser {
   id: string;
   name: string;
   api_enabled: boolean;
