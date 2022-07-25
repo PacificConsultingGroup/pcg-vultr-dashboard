@@ -1,5 +1,5 @@
 import { vultrFetchClient } from '@/src/lib/configured-fetch/fetch.client';
-import User from '@/src/routes/vultr/users/users.schema';
+import User from '@/src/routes/vultr/vultr.schema';
 
 export async function authenticate(email: User['email'], password: User['password']): Promise<User | null> {
   const { data } = await vultrFetchClient.get<{ users: User[] }>('/users');

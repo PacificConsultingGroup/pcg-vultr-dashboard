@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import User from '@/src/routes/vultr/users/users.schema';
+import User from '@/src/routes/vultr/vultr.schema';
 import { generateAccessToken } from '@/src/lib/auth/auth.utils';
 import { authenticate } from './auth.service';
 

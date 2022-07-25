@@ -1,5 +1,5 @@
 
-import User from '@/src/routes/vultr/users/users.schema';
+import User from '@/src/routes/vultr/vultr.schema';
 import jwt from 'jsonwebtoken';
 
 export function generateAccessToken(payload: Pick<User, 'id'>): string {

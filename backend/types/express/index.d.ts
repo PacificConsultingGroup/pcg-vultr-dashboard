@@ -1,5 +1,5 @@
 
-import User from '@/src/routes/vultr/users/users.schema';
+import User from '@/src/routes/vultr/vultr.schema';
 
 declare global {
   namespace Express {
