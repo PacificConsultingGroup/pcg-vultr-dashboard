@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import { vultrFetch } from '@/src/lib/configured-fetch/fetch.client';
+import { vultrFetchClient } from '@/src/lib/configured-fetch/fetch.client';
 import { isFetchError, parseFetchError } from '@/src/lib/configured-fetch/fetch.utils';
 
 export const vultrGetController: RequestHandler = async (req, res) => {
@@ -8,7 +8,7 @@ export const vultrGetController: RequestHandler = async (req, res) => {
   }, '');
   const stringifiedPath = `${req.params[0]}?${stringifiedRequestQueries}`;
   try {
-    const { data } = await vultrFetch.get(stringifiedPath);
+    const { data } = await vultrFetchClient.get(stringifiedPath);
     return res.status(200).send(data);
   } catch (err) {
     console.log(err);
