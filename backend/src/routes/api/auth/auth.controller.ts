@@ -2,6 +2,7 @@ import { RequestHandler } from 'express';
 import VultrUser from '@/src/schema/vultr/VultrUser';
 import { generateAccessToken } from '@/src/lib/auth/auth.utils';
 import { authenticate } from './auth.service';
+import baseLogger from '@/src/loggers/baseLogger';
 
 export const loginController: RequestHandler<
   never,
@@ -36,7 +37,7 @@ export const loginController: RequestHandler<
       user: authenticatedUser
     });
   } catch (err) {
-    console.log(err);
+    baseLogger.error(err);
     return res.status(500).send('Internal server error');
   }
 };

@@ -1,3 +1,4 @@
+import baseLogger from '@/src/loggers/baseLogger';
 import { RequestHandler } from 'express';
 import { decodeAccessToken } from './auth.utils';
 
@@ -11,7 +12,7 @@ export const deserializeUser: RequestHandler = (req, res, next) => {
     req.loggedInUserId = loggedInUserId;
     return next();
   } catch (err) {
-    console.log(err);
+    baseLogger.error(err);
     return res.status(401).send('Access token verification failed');
   }
 };
